@@ -1,0 +1,5 @@
+br\waterblock\Fluido.class
+br\waterblock\Principal.class
+br\waterblock\SensorCooler.class
+br\waterblock\SensorWatercooler.class
+br\waterblock\Geometria.class

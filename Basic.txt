@@ -1,0 +1,36 @@
+Public oWMIObjEx As Object 'SWbemObjectEx
+Public oWMIProp As Object 'SWbemProperty
+Public sWQL As String 'WQL Statement
+Public n
+    Public strRow As String
+    Public inRow As Integer
+    
+Sub ProcessorWMI() sWQL = "Select * From" _
+Win32_Processor Set oWMISrvEx =" _
+GetObject("winmgmts:root/CIMV2") Set oWMIObjSet = " _
+oWMISrvEx.ExecQuery(sWQL) intRow = 2 strRow = Str(intRow) " _
+ThisWorkbook.Sheets("Processor").Range("A1").Value = "Name" " _
+ThisWorkbook.Sheets("Processor").Cells(1, 1).Font.Bold = " _
+True ThisWorkbook.Sheets("Processor").Range("B1").Value = " _
+"Value" ThisWorkbook.Sheets("Processor").Cells(1, " _
+2).Font.Bold = True For Each oWMIObjEx In oWMIObjSet For " _
+Each oWMIProp In oWMIObjEx.Properties_ If Not " _
+IsNull(oWMIProp.Value) Then If IsArray(oWMIProp.Value)" _
+Then For n = LBound(oWMIProp.Value) To " _
+UBound(oWMIProp.Value) Debug.Print oWMIProp.Name & "(" & n" _
+& ")", oWMIProp.Value(n) " _
+ThisWorkbook.Sheets("Processor").Range("A" & " _
+Trim(strRow)).Value = oWMIProp.Name " _
+ThisWorkbook.Sheets("Processor").Range("B" & " _
+Trim(strRow)).Value = oWMIProp.Value(n) " _
+ThisWorkbook.Sheets("Processor").Range("B" & " _
+Trim(strRow)).HorizontalAlignment = xlLeft intRow = intRow " _
++ 1 strRow = Str(intRow) Next Else " _
+ThisWorkbook.Sheets("Processor").Range("A" & " _
+Trim(strRow)).Value = oWMIProp.Name " _
+ThisWorkbook.Sheets("Processor").Range("B" & " _
+Trim(strRow)).Value = oWMIProp.Value " _
+ThisWorkbook.Sheets("Processor").Range("B" & " _
+Trim(strRow)).HorizontalAlignment = xlLeft intRow = intRow " _
++ 1 strRow = Str(intRow) End If End If Next 'End If Next End Sub
+

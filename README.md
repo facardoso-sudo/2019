@@ -1,5 +1,6 @@
 # Sistema de Análise da Transferência de Calor em Unidades de Processamento de Dados
 
+O link abaixo refere-se a uma verificação numérica realizada com os dados coletados para transferência de calor em unidades de processamento de dados, essa verificação realizada na planilha do Excel forneceu indicios para a proposta no novo método Stingelin, presente na pasta de projeto "2023". Segue o link: https://www.youtube.com/watch?v=Ed4ix_jK-gc
 
 Abaixo são respondidas 3 perguntas que permeiam a motivação para a implementação do software:
 
